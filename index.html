@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Parser</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-100">
+
+    <div class="flex h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-900 text-white p-6">
+
+            <h1 class="text-2xl font-bold text-cyan-400">
+                ResumeAI
+            </h1>
+
+            <p class="text-gray-400 text-sm mt-2">
+                HR Analytics Dashboard
+            </p>
+
+            <nav class="mt-10">
+
+                <ul class="space-y-4">
+
+                    <li>
+                        <a href="/" class="block p-3 rounded-lg bg-cyan-500 hover:bg-cyan-600 transition">
+                            Home Page
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#upload-section" class="block p-3 rounded-lg hover:bg-slate-800 transition">
+                            Upload Resume
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/candidates" class="block p-3 rounded-lg hover:bg-slate-800 transition">
+                            Candidate Analysis
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/export" class="block p-3 rounded-lg hover:bg-slate-800 transition">
+                            Export Data
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/search" class="block p-3 rounded-lg hover:bg-slate-800 transition">
+                            Search Candidates
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/ranking" class="block p-3 rounded-lg hover:bg-slate-800 transition">
+                            ATS Ranking
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="flex-1 p-10 overflow-auto">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center">
+
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-800">
+                        AI Resume Parser
+                    </h2>
+
+                    <p class="text-gray-500 mt-2">
+                        Smart Candidate Screening System
+                    </p>
+                </div>
+
+                <button class="bg-cyan-500 text-white px-6 py-3 rounded-xl hover:bg-cyan-600 transition">
+                    Upload Resume
+                </button>
+
+            </div>
+
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-3 gap-6 mt-10">
+
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <h3 class="text-gray-500">
+                        Total Resumes
+                    </h3>
+
+                    <p class="text-3xl font-bold mt-3 text-slate-800">
+                        {{ total_resumes }}
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <h3 class="text-gray-500">
+                        Candidates Analyzed
+                    </h3>
+
+                    <p class="text-3xl font-bold mt-3 text-slate-800">
+                        {{ total_resumes }}
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <h3 class="text-gray-500">
+                        Skill Match Score
+                    </h3>
+
+                    <p class="text-3xl font-bold mt-3 text-green-500">
+                        0%
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Upload Section -->
+            <div class="bg-white p-8 rounded-2xl shadow-md mt-10">
+
+                <h3 class="text-2xl font-bold text-slate-800">
+                    Upload Resume
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Upload PDF or DOCX resumes for AI analysis
+                </p>
+
+                <div class="border-2 border-dashed border-cyan-400 rounded-xl mt-6 p-12 text-center">
+
+                    <p class="text-gray-500">
+                        Drag & Drop Resume Here
+                    </p>
+
+                    <form action="/upload" method="POST" enctype="multipart/form-data">
+
+                      <input
+                          type="file"
+                          name="resume"
+                          accept=".pdf,.doc,.docx"
+                          class="block mx-auto border rounded-lg p-3 mt-5"
+                        >
+
+                      <button
+                          type="submit"
+                          class="bg-cyan-500 text-white px-5 py-3 rounded-xl mt-5 hover:bg-cyan-600 transition"
+                      >
+                        Upload Resume
+                      </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

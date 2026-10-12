@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Candidates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 p-10">
+
+    <h1 class="text-4xl font-bold mb-8">
+        Search Candidates
+    </h1>
+
+    <form action="/search" method="GET">
+
+        <input
+            type="text"
+            name="skill"
+            placeholder="Enter Skill"
+            class="border p-3 rounded-lg"
+        >
+
+        <button
+            type="submit"
+            class="bg-cyan-500 text-white px-5 py-3 rounded-lg"
+        >
+            Search
+        </button>
+
+    </form>
+
+    <div class="mt-8">
+
+        {% for candidate in results %}
+
+        <div class="bg-white p-5 rounded-xl shadow mb-4">
+
+            <h2 class="font-bold text-xl">
+                {{ candidate[1] }}
+            </h2>
+
+            <p>{{ candidate[2] }}</p>
+
+            <p>{{ candidate[7] }}</p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Candidate Profile</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-100">
+
+<div class="max-w-6xl mx-auto p-10">
+
+    <div class="flex justify-between items-center mb-8">
+
+        <h1 class="text-4xl font-bold text-slate-800">
+
+            Candidate Profile
+
+        </h1>
+
+        <a href="/candidates"
+           class="bg-slate-800 text-white px-5 py-3 rounded-xl hover:bg-slate-900">
+
+            ← Back
+
+        </a>
+
+    </div>
+
+    <div class="grid grid-cols-2 gap-6">
+
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+
+            <h2 class="text-2xl font-bold mb-5">
+
+                👤 Personal Information
+
+            </h2>
+
+            <p class="mb-3"><strong>Name:</strong> {{ candidate[1] }}</p>
+
+            <p class="mb-3"><strong>Email:</strong> {{ candidate[2] }}</p>
+
+            <p class="mb-3"><strong>Phone:</strong> {{ candidate[3] }}</p>
+
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+
+            <h2 class="text-2xl font-bold mb-5">
+
+                🎓 Education
+
+            </h2>
+
+            <p class="mb-3"><strong>Degree:</strong> {{ candidate[4] }}</p>
+
+            <p class="mb-3"><strong>College:</strong> {{ candidate[5] }}</p>
+
+        </div>
+
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 mt-8">
+
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+
+            <h2 class="text-2xl font-bold mb-5">
+
+                💼 Experience
+
+            </h2>
+
+            <p class="leading-8">
+
+                {{ candidate[6] }}
+
+            </p>
+
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+
+            <h2 class="text-2xl font-bold mb-5">
+
+                🛠 Skills
+
+            </h2>
+
+            <div class="flex flex-wrap gap-3">
+
+                {% for skill in candidate[7].split(',') %}
+
+                <span class="bg-gradient-to-r from-cyan-500 to-blue-600
+                             text-white px-4 py-2 rounded-full shadow">
+
+                    {{ skill }}
+
+                </span>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

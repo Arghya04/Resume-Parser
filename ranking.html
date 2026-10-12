@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATS Ranking Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 p-10">
+
+<h1 class="text-4xl font-bold mb-8">
+🏆 ATS Ranking Engine
+</h1>
+
+<form method="POST"
+      class="bg-white p-6 rounded-xl shadow mb-8">
+
+    <input
+        type="text"
+        name="required_skills" 
+        value="{{ required_skills }}" 
+        placeholder="Python, SQL, Flask"
+        class="border p-3 rounded-lg w-full mb-4"
+    >
+
+    <input
+        type="text"
+        name="required_education"
+        value="{{ required_education }}"
+        placeholder="Education"
+        class="border p-3 rounded-lg w-full mb-4"
+    >
+
+    <input
+        type="text"
+        name="required_experience"
+        value="{{ required_experience }}"
+        placeholder="Experience"
+        class="border p-3 rounded-lg w-full mb-4"
+    >
+
+    <button
+        type="submit"
+        class="bg-cyan-500 text-white px-6 py-3 rounded-lg"
+    >
+        Rank Candidates
+    </button>
+
+</form>
+
+{% for candidate in ranked_candidates %}
+
+<div class="bg-white p-6 rounded-xl shadow mb-4">
+
+<h2 class="text-2xl font-bold">
+
+{{ candidate.name }}
+
+</h2>
+
+<p>
+Skills Score:
+{{ candidate.skills_score }}/60
+</p>
+
+<p>
+Education Score:
+{{ candidate.education_score }}/20
+</p>
+
+<p>
+Experience Score:
+{{ candidate.experience_score }}/20
+</p>
+
+<hr class="my-3">
+
+<p class="text-xl font-bold text-green-600">
+
+Final ATS Score:
+{{ candidate.final_score }}%
+
+</p>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

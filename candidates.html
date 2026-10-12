@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Candidates</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-blue-200 p-10">
+
+   <h1 class="text-4xl font-bold mb-2">
+        👥 Candidate Database
+    </h1>
+
+    <p class="text-gray-500 mb-8">
+        Resume Parser & ATS Candidate Repository
+    </p>
+
+    <div class="bg-slate-800 rounded-2xl shadow-xl p-6 overflow-x-auto">
+
+        <table class="w-full">
+
+            <thead>
+
+                <tr class="bg-slate-800 text-cyan-400">
+
+                    <th class="p-3">ID</th>
+                    <th class="p-3">Name</th>
+                    <th class="p-3">Email</th>
+                    <th class="p-3">Phone</th>
+                    <th class="p-3">Education</th>
+                    <th class="p-3">College</th>
+                    <th class="p-3">Experience</th>
+                    <th class="p-3">Skills</th>
+                    <th class="p-3">Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for candidate in candidates %}
+
+                <tr class="bg-slate-700 text-cyan-100">
+
+                    <td class="p-3">{{ candidate[0] }}</td>
+                    <td class="p-3">{{ candidate[1] }}</td>
+                    <td class="p-3">{{ candidate[2] }}</td>
+                    <td class="p-3">{{ candidate[3] }}</td>
+                    <td class="p-3">{{ candidate[4] }}</td>
+                    <td class="p-3">{{ candidate[5] }}</td>
+
+                    <td class="p-3 max-w-xs break-words">
+                        {{ candidate[6] }}
+                    </td>
+
+                    <td class="p-3 max-w-xs break-words">
+                       {{ candidate[7] }}
+                    </td>
+                
+                    <td class="p-3">
+
+                        <a href="/candidate/{{ candidate[0] }}"
+
+                            class="bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700">
+
+                            View
+
+                        </a>
+
+                    </td>
+                </tr>   
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+</html>
